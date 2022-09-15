@@ -8,6 +8,7 @@
 	import { projects } from '$lib/projects';
 	import Nav from '$lib/components/Nav';
 	import Modal from '$lib/components/Modal';
+	import Link from '$lib/assets/icons/Link.svelte';
 
 	let isModalOpen = false;
 	let contentIndex: number | null = null;
@@ -78,6 +79,17 @@
 								on:click|stopPropagation={() => {}}
 								><button aria-label="{project.name} GitHub Repository" class="is-transparent"
 									><GitHub /></button
+								></a
+							>
+						{/if}
+						{#if project.github_url}
+							<a
+								href={project.demo_url}
+								target="_blank"
+								rel="noopener noreferrer"
+								on:click|stopPropagation={() => {}}
+								><button aria-label="{project.name} Demo" class="is-transparent"
+									><Link /> Demo</button
 								></a
 							>
 						{/if}

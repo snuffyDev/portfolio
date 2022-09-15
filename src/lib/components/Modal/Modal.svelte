@@ -1,5 +1,6 @@
 <script lang="ts">
 	import GitHub from '$lib/assets/icons/GitHub.svelte';
+	import Link from '$lib/assets/icons/Link.svelte';
 	import X from '$lib/assets/icons/X.svelte';
 	import { isLargeViewport, isSmallViewport } from '$lib/stores/viewport';
 	import type { Project } from '$lib/types/project';
@@ -25,8 +26,23 @@
 			{#if $isLargeViewport}
 				<div class="mb-2">{@html project.description}</div>
 			{/if}
-			<div class="resp-content-width">
-				<button class="is-translucent is-small" on:click><GitHub /> Repository</button>
+			<div class="resp-content-width" style="display: flex; justify-content: space-around;">
+				<a
+					href={project.github_url}
+					target="_blank"
+					rel="noopener noreferrer"
+					on:click|stopPropagation={() => {}}
+					><button aria-label="{project.name} GitHub Repository" class="is-translucent"
+						><GitHub /> Repository</button
+					></a
+				>
+				<a
+					href={project.demo_url}
+					target="_blank"
+					rel="noopener noreferrer"
+					on:click|stopPropagation={() => {}}
+					><button aria-label="{project.name} Demo" class="is-translucent"><Link /> Demo</button></a
+				>
 			</div>
 		</Section>
 	</div>
