@@ -1,0 +1,34 @@
+@use '../utility/layout' as *;
+.resp-content-width {
+	@include content-width();
+}
+.mb-1 {
+	margin-bottom: 0.66667em;
+}
+.mb-2 {
+	margin-bottom: 1.66667em;
+}
+:has(.backdrop) {
+	overflow: hidden !important;
+	touch-action: none;
+	.backdrop {
+		touch-action: none;
+
+		position: fixed;
+		inset: 0;
+		overflow: hidden;
+		background-color: hsl(0deg 0% 0% / 56%);
+		z-index: 50;
+	}
+}
+
+.is-scrollable {
+	overflow-y: auto;
+}
+
+:target {
+	display: block;
+	position: relative;
+	top: -4em;
+	visibility: hidden;
+}

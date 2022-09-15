@@ -1,0 +1,107 @@
+@use './../colors';
+@use 'sass:math';
+
+:root {
+	@each $name, $idx in colors.$colors {
+		.is-#{$name}:is(button) {
+			--button-color: var(--c-#{$name}-root);
+
+			--hover-color: var(--c-#{$name}-dark);
+			--accent-color: var(--c-#{$name}-accent);
+
+			--active-color: var(--c-#{$name}-light);
+			background-color: var(--c-#{$name}-root);
+
+			@if $name == 'primary' {
+				color: colors.$c-font-dark;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: var(--hover-color);
+					box-shadow: 2px 2px 21px -9px rgba(0, 0, 0, 0.247), 0 0 0 0 inset rgba(0, 0, 0, 0.219);
+				}
+			}
+
+			&:active,
+			&:hover:active {
+				background-color: var(--active-color);
+			}
+		}
+	}
+}
+
+html {
+}
+
+button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: #0000 solid 0.0625em;
+	border-radius: 0.3125em;
+	font-weight: 550;
+	color: colors.$c-font-light;
+	font-size: 1em;
+	line-height: 1.2;
+	min-height: 2.5rem;
+	padding: 0.25rem 1em;
+	letter-spacing: -0.02em;
+	font-family: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	transition: background-color 400ms 0ms ease-out;
+	user-select: none;
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.356), 0 0 5px rgba(0, 0, 0, 0.295);
+	box-shadow: 1px 1px 27px -8px rgba(0, 0, 0, 0.062), -1px 1px 19px -32px rgba(0, 0, 0, 0.219) inset;
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	appearance: button;
+	-webkit-appearance: button;
+}
+
+button svg {
+	margin-right: 0.25em;
+}
+
+button {
+	&:focus-visible,
+	&:focus,
+	&:focus:not(:focus-visible) {
+		outline: var(--accent-color) 1px solid !important;
+		outline-offset: 2.5px;
+	}
+}
+
+button.pill {
+	border-radius: 1.2em;
+}
+
+button.circle {
+	border-radius: 50%;
+
+	width: 2em;
+	padding: 1.2em;
+	height: 2em;
+}
+
+button.is-large {
+	font-size: 1.2em;
+	padding: 0.6rem 1.2em;
+}
+button.is-small {
+	font-size: 0.9em;
+	padding: 0em 1.1em;
+}
+
+:where(button) {
+	&:hover:active,
+	&:active {
+		border: var(--button-color) solid 0.0625em;
+
+		box-shadow: 2px 2px 21px -3px rgba(0, 0, 0, 0.158),
+			-1px 1px 23px -7px rgba(0, 0, 0, 0.082) inset;
+		color: #ffffff;
+		transition: background-color 0ms 0ms cubic-bezier(0.6, 0.04, 0.98, 0.335), box-shadow 80ms;
+	}
+}

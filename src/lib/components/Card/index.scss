@@ -1,0 +1,173 @@
+@use '../../styles/colors';
+@use '../../styles/utility/utility';
+
+article {
+	border-radius: 0.4em;
+	background-color: var(--c-translucent-root);
+	display: flex;
+
+	flex-direction: column;
+
+	border: 0.065em colors.shade(colors.$c-gray, $weight: 20%) solid;
+
+	&::hover {
+		border-color: colors.tint(colors.$c-gray, $weight: 100%);
+	}
+
+	min-width: 13em;
+	min-height: 23em;
+	width: calc(100% - 64px - 32vmax);
+	max-width: 100%;
+	@include utility.media-query-between(md, lg) {
+		width: clamp(12em, 15em, 21em);
+	}
+
+	@include utility.media-query-between(xs, sm) {
+		width: 100%;
+	}
+	max-height: 27em;
+	flex: 0 1 auto;
+
+	@media (hover: hover) {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	@media (hover: hover) {
+		&:hover *:is(img) {
+			transform: scale(1.35);
+
+			transition: transform cubic-bezier(0.445, 0.05, 0.55, 0.95) 500ms 400ms;
+		}
+	}
+}
+
+.card-image {
+	position: relative;
+	isolation: isolate;
+	background-color: colors.shade(colors.$c-bg-root, $weight: 5%);
+	border-radius-top-left: 0.4em;
+	border-radius-top-right: 0.4em;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	user-select: none;
+	contain: paint;
+	-webkit-user-select: none;
+}
+
+.thumbnail-container {
+	margin: 0 auto;
+
+	max-width: 100%;
+	min-width: 100%;
+	isolation: isolate;
+	border-radius: inherit;
+
+	border-radius: inherit;
+	contain: paint;
+	height: 100%;
+	width: 100%;
+}
+
+.thumbnail {
+	max-width: 100%;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	align-content: center;
+	justify-content: center;
+	z-index: -5;
+
+	border-radius: inherit;
+	background-image: linear-gradient(
+		to top,
+		hsla(0, 0%, 0%, 0.9) 0%,
+		hsla(0, 0%, 0%, 0.889) 3.4%,
+		hsla(0, 0%, 0%, 0.856) 7.1%,
+		hsla(0, 0%, 0%, 0.806) 11.2%,
+		hsla(0, 0%, 0%, 0.742) 15.7%,
+		hsla(0, 0%, 0%, 0.667) 20.6%,
+		hsla(0, 0%, 0%, 0.583) 26%,
+		hsla(0, 0%, 0%, 0.495) 31.9%,
+		hsla(0, 0%, 0%, 0.405) 38.3%,
+		hsla(0, 0%, 0%, 0.317) 45.2%,
+		hsla(0, 0%, 0%, 0.233) 52.7%,
+		hsla(0, 0%, 0%, 0.158) 60.9%,
+		hsla(0, 0%, 0%, 0.094) 69.6%,
+		hsla(0, 0%, 0%, 0.044) 79.1%,
+		hsla(0, 0%, 0%, 0.011) 89.2%,
+		hsla(0, 0%, 0%, 0) 100%
+	);
+
+	z-index: -1;
+
+	&::before {
+		position: absolute;
+		inset: 0;
+		content: '';
+		transition: opacity cubic-bezier(0.39, 0.575, 0.565, 1) 600ms;
+
+		background-image: linear-gradient(
+			to top,
+			hsla(0, 0%, 0%, 0.9) 0%,
+			hsla(0, 0%, 0%, 0.852) 9.8%,
+			hsla(0, 0%, 0%, 0.803) 18.7%,
+			hsla(0, 0%, 0%, 0.752) 27%,
+			hsla(0, 0%, 0%, 0.699) 34.6%,
+			hsla(0, 0%, 0%, 0.645) 41.7%,
+			hsla(0, 0%, 0%, 0.588) 48.3%,
+			hsla(0, 0%, 0%, 0.53) 54.5%,
+			hsla(0, 0%, 0%, 0.47) 60.4%,
+			hsla(0, 0%, 0%, 0.409) 66.1%,
+			hsla(0, 0%, 0%, 0.345) 71.6%,
+			hsla(0, 0%, 0%, 0.28) 77.1%,
+			hsla(0, 0%, 0%, 0.213) 82.6%,
+			hsla(0, 0%, 0%, 0.144) 88.2%,
+			hsla(0, 0%, 0%, 0.073) 94%,
+			hsla(0, 0%, 0%, 0) 100%
+		);
+
+		opacity: 0;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		opacity: 0.8;
+	}
+}
+
+img {
+	transform: scale(1);
+	transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 400ms;
+
+	object-fit: cover;
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	z-index: -5;
+	object-position: top;
+}
+
+span.h4 {
+	bottom: 0;
+	left: 0;
+	margin-bottom: 0.2em;
+}
+
+.description {
+	bottom: 0;
+	display: block;
+}
+
+.card-info {
+	text-shadow: 1px 1px 5px hsla(0, 0%, 0%, 0.158), 1px 2px 4px hsla(0, 0%, 0%, 0.47),
+		0px 1px 2px hsla(0, 0%, 0%, 0.317);
+	margin: 0 0 0.7em 0.7em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+}

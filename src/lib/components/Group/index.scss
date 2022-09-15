@@ -1,0 +1,28 @@
+.group {
+	display: flex;
+	@media screen and (max-width: 768px) {
+		margin: 0 auto;
+		max-width: 95%;
+	}
+
+	padding-top: 1.333em;
+}
+
+.grid {
+	display: grid;
+
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.row {
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.gap {
+	gap: var(--gap-size, 1em);
+}

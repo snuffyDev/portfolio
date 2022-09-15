@@ -1,0 +1,69 @@
+@forward 'lib/styles/styles.scss';
+@use 'lib/styles/colors' as *;
+@use 'lib/styles/utility/utility' as *;
+
+@use 'sass:math';
+
+:root {
+	* {
+		scrollbar-gutter: 0.833333rem;
+		scrollbar-width: thin;
+		scrollbar-color: #c7c7c7 #5e5e5e2f;
+	}
+
+	::-webkit-scrollbar {
+		width: 0.916667rem;
+		height: 0.916667rem;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #74747e21;
+		border-radius: 0.625rem;
+		height: 0.916667rem;
+		width: 100%;
+		background-clip: content-box;
+		border-radius: 0.833333rem;
+		border: transparent solid 0.0983333rem;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: #e0e0e0a8;
+		border-radius: 0.5625rem;
+		width: 0.5625rem;
+		scrollbar-width: 0.625rem;
+		border: 0.25rem solid #b8b8b800;
+		background-clip: content-box;
+	}
+}
+html {
+	font-family: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.5;
+	user-select: unset;
+	-webkit-user-select: unset;
+	max-width: 100%;
+	font-size: 16px;
+}
+
+html {
+	background-color: $c-bg-root;
+	color: $c-font-light;
+
+	overflow-x: hidden;
+}
+
+main {
+	max-width: 100%;
+	margin: 0 auto;
+	@include content-spacing($type: 'padding');
+	@include content-width();
+	padding-top: 0 !important;
+}
+
+hr {
+	margin-block: 1.2em;
+	border-color: $c-gray;
+	border-style: inset;
+}

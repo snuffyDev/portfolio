@@ -1,0 +1,14 @@
+@mixin trim($numLines: null) {
+	@if $numLines !=null {
+		display: -webkit-box;
+		-webkit-line-clamp: 5;
+		-webkit-box-orient: vertical;
+		max-height: calc(25px * 5);
+		padding-bottom: 1em;
+	} @else {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		display: block;
+	}
+}

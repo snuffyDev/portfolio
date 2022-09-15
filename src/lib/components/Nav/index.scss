@@ -1,0 +1,49 @@
+@use '../../styles/colors' as *;
+@use '../../styles/utility/utility' as *;
+a {
+	display: inline-flex;
+	min-width: 7em;
+	color: $c-font-light;
+	font-weight: 600;
+	padding: 0.5em;
+	border-radius: 0.4em;
+	align-content: center;
+	justify-content: center;
+	&:hover {
+		color: adjust-color($c-font-med, $lightness: 3%);
+		background-color: adjust-color($c-translucent, $alpha: 0);
+	}
+}
+
+nav {
+	position: sticky;
+	top: 0em;
+
+	will-change: transform;
+	isolation: isolate;
+
+	user-select: none;
+	z-index: 1;
+	transform: translate3d(0, 0, 0);
+	opacity: var(--background-opacity, 0);
+	transition: opacity var(--duration) var(--easing);
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: adjust-color($c-bg-root, $lightness: -3%);
+		transition: opacity var(--duration) cubic-bezier(0.19, 1, 0.22, 1);
+		opacity: var(--background-opacity, 0);
+		z-index: -1;
+	}
+}
+
+.content-spacing {
+	padding-block: 0 !important;
+}
+.links {
+	@include content-spacing($type: 'padding');
+	@include content-width();
+	padding-block: 0 !important;
+	margin: 0 auto;
+}

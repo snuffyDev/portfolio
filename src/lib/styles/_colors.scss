@@ -1,0 +1,72 @@
+@use 'sass:color' as *;
+
+@function shade($color, $weight: 20%) {
+	@return mix(black, $color, $weight);
+}
+
+@function tint($color, $weight: 20%) {
+	@return mix(white, $color, $weight);
+}
+
+$c-bg-root: #12121a;
+$c-font-light: #f5eeee;
+$c-font-med: #adadad;
+$c-font-dark: #ffffff;
+$c-gray: #3d3d43;
+$c-primary: #32ceac;
+$c-secondary: #5c6bc0;
+$c-translucent: rgba(73, 73, 73, 0.288);
+$colors: (
+	'primary': (
+		root: $c-primary,
+		accent: tint($c-primary, $weight: 50%),
+		dark: shade($c-primary),
+		light: tint($c-primary, $weight: 30%)
+	),
+	'secondary': (
+		root: $c-secondary,
+		accent: tint($c-secondary, $weight: 50%),
+		light: tint($c-secondary, $weight: 30%),
+		dark: shade($c-secondary)
+	),
+	'gray': (
+		root: $c-gray,
+		accent: tint($c-gray),
+		light: tint($c-gray, $weight: 10%),
+		dark: shade($c-gray, $weight: 5%)
+	),
+	'translucent': (
+		root: rgba(73, 73, 73, 0.288),
+		accent: tint($c-gray),
+		light: tint(rgba(0, 0, 0, 0.205), $weight: 30%),
+		dark: tint(rgba(0, 0, 0, 0.205), $weight: 15%)
+	),
+	'translucent-100': (
+		root: rgba(0, 0, 0, 0.73),
+		accent: tint($c-gray),
+		light: tint(rgba(0, 0, 0, 0.63), $weight: 30%),
+		dark: tint(rgba(0, 0, 0, 0.63), $weight: 15%)
+	),
+	'transparent': (
+		root: #0000,
+		accent: tint(#0000),
+		light: tint(#0000, $weight: 30%),
+		dark: tint(#0000, $weight: 15%)
+	)
+);
+
+$color-names: (primary);
+
+:root {
+	@each $color, $id in $colors {
+		$map: map-get($colors, $color);
+
+		@each $kind, $data in $map {
+			--c-#{$color}-#{$kind}: #{$data};
+		}
+	}
+}
+
+.c-text-gray {
+	color: $c-font-med;
+}

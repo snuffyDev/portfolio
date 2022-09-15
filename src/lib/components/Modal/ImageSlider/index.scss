@@ -1,0 +1,108 @@
+.carousel {
+	max-width: 100%;
+
+	position: relative;
+	min-height: 0;
+
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	contain: content;
+	margin-bottom: 1em;
+}
+
+img {
+	max-width: 100%;
+	height: 100%;
+
+	width: 100%;
+
+	min-height: inherit;
+	max-height: inherit;
+	object-fit: contain;
+}
+.image {
+	width: 100%;
+	position: absolute;
+	inset: 0;
+	height: 100%;
+
+	width: 100%;
+	max-width: 100%;
+
+	isolation: isolate;
+	will-change: transform, opacity;
+
+	&::after {
+		background-image: linear-gradient(
+			to top,
+			hsla(0, 0%, 0%, 0.9) 0%,
+			hsla(0, 0%, 0%, 0.889) 3.4%,
+			hsla(0, 0%, 0%, 0.856) 7.1%,
+			hsla(0, 0%, 0%, 0.806) 11.2%,
+			hsla(0, 0%, 0%, 0.742) 15.7%,
+			hsla(0, 0%, 0%, 0.667) 20.6%,
+			hsla(0, 0%, 0%, 0.583) 26%,
+			hsla(0, 0%, 0%, 0.495) 31.9%,
+			hsla(0, 0%, 0%, 0.405) 38.3%,
+			hsla(0, 0%, 0%, 0.317) 45.2%,
+			hsla(0, 0%, 0%, 0.233) 52.7%,
+			hsla(0, 0%, 0%, 0.158) 60.9%,
+			hsla(0, 0%, 0%, 0.094) 69.6%,
+			hsla(0, 0%, 0%, 0.044) 79.1%,
+			hsla(0, 0%, 0%, 0.011) 89.2%,
+			hsla(0, 0%, 0%, 0) 100%
+		);
+		z-index: 1;
+		opacity: 0.2;
+		transition: opacity 400ms linear;
+	}
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+	}
+}
+.image-container {
+	position: relative;
+	height: 100%;
+	min-height: 5vh;
+	width: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	aspect-ratio: 16/9;
+	&:hover .carousel-controls :where(:is(button).is-translucent-100) {
+		border-color: var(--c-translucent-dark);
+		&:hover {
+			border-color: var(--c-translucent-100-accent);
+		}
+		&:not(:hover) {
+			background-color: var(--c-translucent-100-root);
+		}
+	}
+
+	&:hover > .image::after {
+		opacity: 0;
+	}
+}
+
+.carousel-controls {
+	bottom: 0;
+	left: 0;
+	right: 0;
+	justify-content: space-evenly;
+	width: 100%;
+	display: flex;
+	max-width: 52%;
+	margin: 0 auto;
+	align-items: center;
+	padding-bottom: 0.4em;
+}
+
+:where(:not(:hover)) :where(.carousel-controls) button:not(:hover) {
+	background-color: initial !important;
+	border-color: var(--c-translucent-100-dark);
+}

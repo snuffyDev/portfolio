@@ -1,0 +1,14 @@
+@mixin all-headings {
+	@for $idx from 1 through 6 {
+		h#{$idx},
+		.h#{$idx} {
+			@content;
+		}
+	}
+}
+@mixin heading($idx: 1) {
+	h#{$idx},
+	.h#{$idx} {
+		@content;
+	}
+}

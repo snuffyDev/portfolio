@@ -1,0 +1,16 @@
+@use '../../styles/utility/utility' as *;
+
+section {
+	margin: 0 auto;
+	@include content-spacing($type: 'padding');
+	@include content-width();
+	position: relative;
+	contain: content;
+	&:not(:first-child) {
+		margin-bottom: 1.333em;
+	}
+	&:not(:first-of-type) {
+		margin-top: 3.666em;
+		margin-bottom: 1.333em;
+	}
+}

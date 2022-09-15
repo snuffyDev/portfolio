@@ -1,0 +1,54 @@
+@use './../../styles/colors' as *;
+@use './../../styles/utility/utility' as *;
+.modal {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+	background: adjust-color($c-bg-root, $lightness: -8%);
+
+	@include content-width();
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+
+	height: 100%;
+	padding: 1em;
+	border-radius: 0.6em;
+	display: flex;
+	max-width: 100%;
+	flex-direction: column;
+	max-height: 90%;
+	touch-action: none;
+}
+.top-bar {
+	display: block;
+	padding: 0.5em;
+}
+.x {
+	user-select: none;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 0.8em;
+}
+
+:global(ul, li) {
+	list-style-position: outside;
+	list-style-type: ' - ';
+	padding: 0;
+	padding-top: 0;
+	margin: 0;
+}
+:global(ul) {
+	margin-bottom: 1.2em;
+}
+:global(b) {
+	font-weight: bold;
+	margin-bottom: 1.25em;
+	margin-top: 0.5em;
+}
+:global(li) {
+	margin-left: 1rem;
+}
