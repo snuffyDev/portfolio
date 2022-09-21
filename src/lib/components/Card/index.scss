@@ -15,8 +15,9 @@ article {
 	}
 
 	min-width: 13em;
-	min-height: 23em;
-	width: calc(100% - 64px - 32vmax);
+	// min-height: 16em;
+	width: calc(50% - 8px);
+	// max-height: calc(25em);
 	max-width: 100%;
 	@include utility.media-query-between(md, lg) {
 		width: clamp(12em, 15em, 21em);
@@ -25,8 +26,8 @@ article {
 	@include utility.media-query-between(xs, sm) {
 		width: 100%;
 	}
-	max-height: 27em;
-	flex: 0 1 auto;
+	// aspect-ratio: 3 / 2;
+	flex: 1 1 auto;
 
 	@media (hover: hover) {
 		&:hover {
@@ -46,8 +47,7 @@ article {
 	position: relative;
 	isolation: isolate;
 	background-color: colors.shade(colors.$c-bg-root, $weight: 5%);
-	border-radius-top-left: 0.4em;
-	border-radius-top-right: 0.4em;
+	border-radius: 0.4em 0.4em 0 0;
 	width: 100%;
 	height: 100%;
 	max-width: 100%;
@@ -147,6 +147,7 @@ img {
 	height: 100%;
 	z-index: -5;
 	object-position: top;
+	max-height: 19em;
 }
 
 span.h4 {

@@ -1,5 +1,5 @@
-@use '../../styles/colors' as *;
-@use '../../styles/utility/utility' as *;
+@use "../../styles/colors" as *;
+@use "../../styles/utility/utility" as *;
 a {
 	display: inline-flex;
 	min-width: 7em;
@@ -9,15 +9,18 @@ a {
 	border-radius: 0.4em;
 	align-content: center;
 	justify-content: center;
+	background-color: #0000;
+	transition: background-color 100ms 0ms ease-out;
 	&:hover {
-		color: adjust-color($c-font-med, $lightness: 3%);
-		background-color: adjust-color($c-translucent, $alpha: 0);
+		color: adjust-color($c-font-light, $lightness: -3%);
+		background-color: adjust-color($c-translucent, $alpha: -0.1, $lightness: 10%);
+		transition: background-color 100ms 0ms ease-out;
 	}
 }
 
 nav {
 	position: sticky;
-	top: 0em;
+	top: -0.001em;
 
 	will-change: transform;
 	isolation: isolate;
@@ -26,23 +29,28 @@ nav {
 	z-index: 1;
 	transform: translate3d(0, 0, 0);
 	opacity: var(--background-opacity, 0);
+	transition-delay: var(--delay, 0ms);
 	transition: opacity var(--duration) var(--easing);
+}
+
+.content-spacing {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding-block: 0 !important;
 	&::before {
-		content: '';
+		content: "";
 		position: absolute;
 		inset: 0;
 		background-color: adjust-color($c-bg-root, $lightness: -3%);
-		transition: opacity var(--duration) cubic-bezier(0.19, 1, 0.22, 1);
+		transition: opacity var(--duration) var(--easing);
 		opacity: var(--background-opacity, 0);
 		z-index: -1;
 	}
 }
-
-.content-spacing {
-	padding-block: 0 !important;
-}
 .links {
-	@include content-spacing($type: 'padding');
+	@include content-spacing($type: "padding");
 	@include content-width();
 	padding-block: 0 !important;
 	margin: 0 auto;

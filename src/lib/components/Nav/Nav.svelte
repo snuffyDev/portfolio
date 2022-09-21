@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { animateScroll } from '$lib/actions/animateScroll';
-	import Group from '../Group';
 </script>
 
 <nav use:animateScroll>

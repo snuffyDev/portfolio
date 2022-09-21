@@ -24,6 +24,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>snuffyDev</title>
+</svelte:head>
 {#if isModalOpen}
 	<Modal
 		on:click={() => {
@@ -32,7 +35,8 @@
 		project={projects[contentIndex]}
 	/>
 {/if}
-
+<Nav />
+<div />
 <Section>
 	<Section>
 		<h1>SnuffyDev</h1>
@@ -40,16 +44,15 @@
 
 		<Group gap={'0.8em'} row>
 			<a href="https://github.com/snuffyDev" target="_blank" rel="no opener noreferrer"
-				><button class="is-translucent is-large"><GitHub /> GitHub</button></a
+				><button class="is-translucent"><GitHub /> GitHub</button></a
 			>
 			<a href="https://www.buymeacoffee.com/snuffydev" target="_blank" rel="no opener noreferrer"
-				><button class="is-primary is-large"><Heart /> Donate</button></a
+				><button class="is-primary"><Heart /> Donate</button></a
 			>
 		</Group>
 	</Section>
 	<hr />
 </Section>
-<Nav />
 <main>
 	<Section>
 		<a name="about" />
@@ -57,8 +60,8 @@
 
 		<p>Always looking to see what else I can accomplish next -</p>
 		<p>
-			This page may be sparse in terms of content, but at least it looks good for around less than a
-			day's worth of work!
+			I'm a self-taught Web and Software Developer with experience in TypeScript, HTML, JavaScript,
+			Rust, and SCSS. I also am relearning C#, which I used in the past for game development.
 		</p>
 	</Section>
 	<Section>
@@ -78,7 +81,7 @@
 								rel="noopener noreferrer"
 								on:click|stopPropagation={() => {}}
 								><button aria-label="{project.name} GitHub Repository" class="is-transparent"
-									><GitHub /></button
+									><GitHub /> GitHub</button
 								></a
 							>
 						{/if}

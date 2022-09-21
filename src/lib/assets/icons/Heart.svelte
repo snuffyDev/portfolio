@@ -1,8 +1,7 @@
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-
 	style="width: 1.1rem; height: 1.4em;"
-    viewBox="0 0 24 24"
+	viewBox="0 0 24 24"
 	fill="none"
 	stroke="currentColor"
 	stroke-width="2"

@@ -1,4 +1,4 @@
-@use '../utility/layout' as *;
+@use "../utility/layout" as *;
 .resp-content-width {
 	@include content-width();
 }
@@ -11,7 +11,7 @@
 :has(.backdrop) {
 	overflow: hidden !important;
 	touch-action: none;
-	.backdrop {
+	> .backdrop {
 		touch-action: none;
 
 		position: fixed;
