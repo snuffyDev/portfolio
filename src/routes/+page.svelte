@@ -25,7 +25,22 @@
 </script>
 
 <svelte:head>
-	<title>snuffyDev</title>
+	<title>SnuffyDev - Open Source Developer</title>
+	<meta name="title" content="SnuffyDev - Open Source Developer" />
+	<meta name="description" content="Welcome to my portfolio! See what I've got to offer." />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://snuffydev.ml/" />
+	<meta property="og:title" content="SnuffyDev - Open Source Developer" />
+	<meta property="og:description" content="Welcome to my portfolio! See what I've got to offer." />
+
+
+	<meta property="twitter:url" content="https://snuffydev.ml/" />
+	<meta property="twitter:title" content="SnuffyDev - Open Source Developer" />
+	<meta
+		property="twitter:description"
+		content="Welcome to my portfolio! See what I've got to offer."
+	/>
 </svelte:head>
 {#if isModalOpen}
 	<Modal
